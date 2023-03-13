@@ -1,0 +1,2 @@
+@echo off
+winget install --id=OBSProject.OBSStudio -e && winget install --id=Git.Git -e  && winget install --id=OpenJS.NodeJS -e  && winget install --id=Microsoft.VisualStudio.2022.Community-Preview -e  && winget install --id=Microsoft.WindowsTerminal -e winget install --id=FreeFileSync_is1 -e
