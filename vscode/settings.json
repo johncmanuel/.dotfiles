@@ -1,36 +1,18 @@
 {
 	"workbench.startupEditor": "newUntitledFile",
-	"atomKeymap.promptV3Features": true,
 	"editor.multiCursorModifier": "ctrlCmd",
 	"editor.formatOnPaste": true,
-	"terminal.integrated.shell.windows": "C:\\windows\\System32\\cmd.exe",
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"diffEditor.ignoreTrimWhitespace": false,
-	"vsicons.associations.files": [
-		{
-			"icon": "rpy",
-			"extensions": ["rpy", "rpyc"],
-			"format": "ico"
-		}
-	],
-	"editor.fontFamily": "Fira Code Retina",
+	// https://commitmono.com/
+	// love this font
+	"editor.fontFamily": "CommitMono",
 	"editor.fontWeight": "400",
-	"editor.fontLigatures": false,
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.fontLigatures": true,
 	"editor.formatOnSave": true,
-	"liveshare.authenticationProvider": "GitHub",
-	"liveshare.connectionMode": "relay",
-	"vsicons.dontShowNewVersionMessage": true,
-	"workbench.editorAssociations": {
-		"*.ipynb": "jupyter.notebook.ipynb"
-	},
-	"terminal.integrated.defaultProfile.windows": "PowerShell",
-	"bracket-pair-colorizer-2.depreciation-notice": false,
 	"[python]": {
 		"editor.formatOnType": true
 	},
-	"terminal.integrated.enableMultiLinePasteWarning": false,
-	"vsicons.presets.hideFolders": true,
 	"[ini]": {},
 	"terminal.integrated.fontFamily": "monospace",
 	"editor.mouseWheelZoom": true,
@@ -42,9 +24,7 @@
 	"svelte.enable-ts-plugin": true,
 	"terminal.integrated.mouseWheelScrollSensitivity": 0.4,
 	"vscode-pets.theme": "forest",
-	"playwright.reuseBrowser": false,
 	"go.toolsManagement.autoUpdate": true,
-	"playwright.showTrace": false,
 	"dotnetAcquisitionExtension.enableTelemetry": false,
 	"telemetry.telemetryLevel": "off",
 	"github.copilot.enable": {
@@ -52,7 +32,6 @@
 		"plaintext": false,
 		"markdown": false,
 		"scminput": false,
-		"asm-intel-x86-generic": false,
 		"csharp": true,
 		"typescript": true
 	},
@@ -65,10 +44,14 @@
 			"button.background": "#205EA6",
 			"button.foreground": "#ffffff",
 			"badge.background": "#205EA6",
-			"badge.foreground": "#ffffff"
+			"badge.foreground": "#ffffff",
+			"sideBarSectionHeader.background": "#100F0F",
+			"focusBorder": "#205EA6"
 		}
-	}
-	// "[javascript]": {
-	//     "editor.defaultFormatter": "esbenp.prettier-vscode"
-	// }
+	},
+	"editor.minimap.enabled": false,
+	"vscode-pets.petType": "totoro",
+	"editor.smoothScrolling": true,
+	"terminal.integrated.smoothScrolling": true,
+	"workbench.list.smoothScrolling": true
 }
