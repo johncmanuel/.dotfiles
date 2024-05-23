@@ -11,6 +11,7 @@ set noerrorbells
 
 " vim-plug
 " Plugins below are mainly for creative writing
+" I should probably create a separate vim config file for coding
 call plug#begin()
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/goyo.vim'
