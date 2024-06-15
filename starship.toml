@@ -1,4 +1,4 @@
-format = "$directory$character$git_branch$git_status"
+format = "$username@$hostname$directory$character$git_branch$git_status"
 add_newline=false
 
 [character]
@@ -16,6 +16,16 @@ diverged = "<>"
 renamed = "r"
 deleted = "x"
 stashed = ''
+
+[username]
+show_always = true
+disabled = false
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "[$ssh_symbol$hostname]($style) "
 
 [aws]
 symbol = "aws "
@@ -229,4 +239,4 @@ symbol = "typst "
 symbol = "terraform "
 
 [zig]
-symbol = "zig "%
+symbol = "zig "
