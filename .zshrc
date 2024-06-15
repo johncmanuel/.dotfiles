@@ -123,4 +123,4 @@ alias sshhome="cd ~/.ssh"
 # edit global ssh configuration
 alias sshconfig="code ~/.ssh/config"
 
-eval "$(starship init zsh)"%
+eval "$(starship init zsh)"
