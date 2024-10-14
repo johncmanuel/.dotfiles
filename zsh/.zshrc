@@ -1,3 +1,4 @@
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -109,18 +110,27 @@ source $ZSH/oh-my-zsh.sh
 # Allows you to not need to restart terminal for changes to .zshrc to be applied
 alias reload='source ~/.zshrc'
 
-alias gs='git status'
 
 alias ohmyzsh="cd ~/.oh-my-zsh"
-alias starshipconfig="code ~/.config/starship.toml"
 
 # edit global git configuration
-alias gitconfig="code ~/.gitconfig"
+# alias gitconfig="code ~/.gitconfig"
 
 # navigate to global ssh directory
-alias sshhome="cd ~/.ssh"
+# alias sshhome="cd ~/.ssh"
 
 # edit global ssh configuration
-alias sshconfig="code ~/.ssh/config"
+# alias sshconfig="code ~/.ssh/config"
 
 eval "$(starship init zsh)"
+
+fastfetch --config ~/.config/fastfetch/presets/minimal.jsonc
+
+# Fix glibc relative path issue by rolling back for now: 
+# https://github.com/jetify-com/devbox/issues/1857#issuecomment-2392561197
+export DEVBOX_USE_VERSION=0.12.0
+
+export PATH=$HOME/.local/bin:$PATH
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+eval "$(devbox global shellenv --init-hook)"
