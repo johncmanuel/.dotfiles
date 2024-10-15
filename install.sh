@@ -121,7 +121,20 @@ main() {
 
   setup_oh_my_zsh
 
-  install_plugins plugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.gitinstall_zsh_plugins
+  install_zsh_plugins plugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git
+  install_zsh_plugins plugin zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git
+  install_zsh_plugins plugin zsh-completions https://github.com/zsh-users/zsh-completions
+
+  echo "setup config files with stow"
+  cd $HOME/.dotfiles || exit 1
+
+  stow stow
+  stow zsh
+  stow git
+  stow fastfetch
+  stow nvim
+  stow ripgrep
+  stow starship
 
   echo "Installation process completed!"
 }
