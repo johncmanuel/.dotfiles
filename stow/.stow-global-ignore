@@ -1,14 +1,31 @@
-.DS_Store
-.git
-.gitignore
-.stow-local-ignore
+
+\.stow-local-ignore
+
 .*.example
 ^/@.*
-KeybdPrefs_.*.png
-Safari_.*.png
-README.*
-TODO.*
-RCS
+
 .*.secrets.*
 .gitconfig.local
 .zshrc.local
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
