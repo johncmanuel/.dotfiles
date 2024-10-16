@@ -90,7 +90,7 @@ install_brew() {
   echo "Mac OS detected, installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.zprofile
+  echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >>"$HOME/.zprofile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
@@ -125,8 +125,8 @@ main() {
   install_zsh_plugins plugin zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git
   install_zsh_plugins plugin zsh-completions https://github.com/zsh-users/zsh-completions
 
-  echo "setup config files with stow"
-  cd $HOME/.dotfiles || exit 1
+  echo "Setup config files with stow"
+  cd "$HOME/.dotfiles" || exit 1
 
   stow stow
   stow zsh
