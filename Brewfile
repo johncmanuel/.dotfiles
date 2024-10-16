@@ -11,6 +11,7 @@ brew 'lazygit' # TUI for git commands
 brew 'ripgrep' # fast grep
 brew 'gnupg' # tool for managing pgp keys
 brew 'pinentry-mac' # tool that allow GnuPG to read passphrases
+brew 'iterm2' # terminal emulator
 
 # Apps
 cask 'obsidian'
