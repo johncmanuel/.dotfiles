@@ -122,6 +122,13 @@ alias ohmyzsh="cd ~/.oh-my-zsh"
 # edit global ssh configuration
 # alias sshconfig="code ~/.ssh/config"
 
+# Add SSH key to Apple Keychain if it exists
+if [[ "$(uname)" == "Darwin" ]]; then
+  if [ -f $HOME/.ssh/id_ed25519]; then
+    ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+  fi
+fi
+
 eval "$(starship init zsh)"
 
 fastfetch --config ~/.config/fastfetch/presets/minimal.jsonc
