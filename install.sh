@@ -32,6 +32,15 @@ setup_oh_my_zsh() {
   fi
 }
 
+setup_devbox() {
+  if command_exists devbox; then
+    echo "Devbox is already installed."
+    return
+  fi
+  echo "Installing Devbox..."
+  sh -c "$(curl -fsSL https://get.jetify.com/devbox)"
+}
+
 install_pkg() {
   if ! command_exists "$1"; then
     echo "Installing $1..."
@@ -78,6 +87,8 @@ install_zsh_plugins() {
 
   plugin_path=$plugin_path/$name
 
+  echo "Installing zsh $type, $name..."
+
   clone_or_pull "$repo" "$plugin_path"
 }
 
@@ -87,7 +98,6 @@ install_brew() {
     return
   fi
 
-  echo "Mac OS detected, installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >>"$HOME/.zprofile"
@@ -106,21 +116,26 @@ setup_brew_dependencies() {
 
 main() {
   echo "Starting installation process..."
+
   mkdir -p "$HOME/.config"
   remove_existing_zshrc
 
   # check if OS is a mac. if mac, install brew and setup brew dependencies
   if [ "$(uname)" = "Darwin" ]; then
+    echo "Mac OS detected, installing Homebrew..."
     install_brew
     setup_brew_dependencies
   else
-    setup_git
-    setup_fastfetch
-    setup_stow
+    # not sure if this will work, don't wanna test it rn haha
+    install_pkg "stow"
+    install_pkg "zsh"
+    install_pkg "git"
+    install_pkg "neovim"
   fi
 
-  setup_oh_my_zsh
+  setup_devbox
 
+  setup_oh_my_zsh
   install_zsh_plugins plugin zsh-autosuggestions https://github.com/zsh-users/zsh-autosuggestions.git
   install_zsh_plugins plugin zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting.git
   install_zsh_plugins plugin zsh-completions https://github.com/zsh-users/zsh-completions
@@ -129,6 +144,7 @@ main() {
   cd "$HOME/.dotfiles" || exit 1
 
   stow stow
+  stow devbox
   stow zsh
   stow git
   stow fastfetch
