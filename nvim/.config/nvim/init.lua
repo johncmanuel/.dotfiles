@@ -20,6 +20,25 @@ nvim_lsp.vtsls.setup({
   single_file_support = false,
 })
 
+nvim_lsp.biome.setup({})
+
+local typescript = function(bufnr)
+  if require("conform").get_formatter_info("biome", bufnr).available then
+    return { "biome", lsp_format = "never" }
+  else
+    return { "vtsls" }
+  end
+end
+
+local conform = require("conform")
+
+conform.setup({
+  formatters_by_ft = {
+    typescript = typescript,
+    -- other filetypes...
+  },
+})
+
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 vim.g.lazyvim_python_lsp = "basedpyright"
 
