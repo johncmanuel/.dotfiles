@@ -123,8 +123,8 @@ alias ohmyzsh="cd ~/.oh-my-zsh"
 # alias sshconfig="code ~/.ssh/config"
 
 # Add SSH key to Apple Keychain if it exists
-if [[ "$(uname)" == "Darwin" ]]; then
-  if [ -f $HOME/.ssh/id_ed25519]; then
+if [[ "$(uname)" = "Darwin" ]]; then
+  if [ -f "$HOME/.ssh/id_ed25519"]; then
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
   fi
 fi
