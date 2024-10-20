@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # Allows you to not need to restart terminal for changes to .zshrc to be applied
 alias reload='source ~/.zshrc'
 
+alias dot="cd ~/.dotfiles"
 
 alias ohmyzsh="cd ~/.oh-my-zsh"
 
