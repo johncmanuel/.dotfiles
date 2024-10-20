@@ -47,7 +47,7 @@ setup_oh_my_zsh() {
     return
   fi
   echo "Installing Oh My Zsh..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 }
 
 setup_devbox() {
@@ -106,8 +106,8 @@ install_brew() {
     echo "Homebrew is already installed."
     return
   fi
-
-  /bin/bash "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  echo "Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >>"$HOME/.zprofile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 }
@@ -130,11 +130,12 @@ main() {
 
   # check if OS is a mac. if mac, install brew and setup brew dependencies
   if [ "$(uname)" = "Darwin" ]; then
-    echo "Mac OS detected, installing Homebrew..."
+    echo "Mac OS detected, use brew to install dependencies"
     install_brew
     setup_brew_dependencies
   else
     # not sure if this will work, don't wanna test it rn haha
+    # TODO: read from a txt or csv file containing pkgs and flatpaks
     install_pkg "stow"
     install_pkg "zsh"
     install_pkg "git"
