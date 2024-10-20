@@ -1,4 +1,4 @@
-# https://github.com/guptarohit/dotfiles/blob/main/Brewfile
+# based off of: https://github.com/guptarohit/dotfiles/blob/main/Brewfile
 
 # Binaries
 brew 'zsh' # zsh (latest)
@@ -12,6 +12,12 @@ brew 'ripgrep' # fast grep
 brew 'gnupg' # tool for managing pgp keys
 brew 'pinentry-mac' # tool that allow GnuPG to read passphrases
 brew 'starship' # cross-shell prompt
+brew 'curl' # transfer data
+brew 'grep' # search text
+brew 'fzf' # fuzzy finder
+brew 'yt-dlp' # youtube-dl fork
+brew 'aria2' # download utility
+brew 'ffmpeg' # multimedia
 
 # Apps
 cask 'obsidian'
@@ -20,6 +26,7 @@ cask 'docker'
 cask 'discord'
 cask 'zoom'
 cask 'iterm2'
+cask 'iina' # for ani-cli
 
 # Fonts
 cask 'font-jetbrains-mono'

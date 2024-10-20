@@ -6,50 +6,6 @@ command_exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
-install_package() {
-  if command_exists brew; then
-    brew install "$1"
-  # elif command_exists apt-get; then
-  #   sudo apt-get install -y "$1"
-  # elif command_exists yum; then
-  #   sudo yum install -y "$1"
-  # elif command_exists pacman; then
-  #   sudo pacman -S --noconfirm "$1"
-  elif command_exists dnf; then
-    sudo dnf install -y "$1"
-  else
-    echo "Unsupported package manager. Please install $1 manually."
-    exit 1
-  fi
-}
-
-setup_oh_my_zsh() {
-  if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    echo "Installing Oh My Zsh..."
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
-  else
-    echo "Oh My Zsh is already installed."
-  fi
-}
-
-setup_devbox() {
-  if command_exists devbox; then
-    echo "Devbox is already installed."
-    return
-  fi
-  echo "Installing Devbox..."
-  sh -c "$(curl -fsSL https://get.jetify.com/devbox)"
-}
-
-install_pkg() {
-  if ! command_exists "$1"; then
-    echo "Installing $1..."
-    install_package "$1"
-  else
-    echo "$1 is already installed."
-  fi
-}
-
 # Sometimes .zshrc files already exist and need to install
 # ohmyzsh
 remove_existing_zshrc() {
@@ -67,6 +23,59 @@ clone_or_pull() {
     git clone "$repo_url" "$directory" || exit 1
   else
     cd "$directory" && git pull "$repo_url" || exit 1
+  fi
+}
+
+install_package() {
+  if command_exists apt-get; then
+    sudo apt-get install -y "$1"
+  elif command_exists yum; then
+    sudo yum install -y "$1"
+  elif command_exists pacman; then
+    sudo pacman -S --noconfirm "$1"
+  elif command_exists dnf; then
+    sudo dnf install -y "$1"
+  else
+    echo "Unsupported package manager. Please install $1 manually."
+    exit 1
+  fi
+}
+
+setup_oh_my_zsh() {
+  if [ -d "$HOME/.oh-my-zsh" ]; then
+    echo "Oh My Zsh is already installed."
+    return
+  fi
+  echo "Installing Oh My Zsh..."
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+}
+
+setup_devbox() {
+  if command_exists devbox; then
+    echo "Devbox is already installed."
+    return
+  fi
+  echo "Installing Devbox..."
+  sh -c "$(curl -fsSL https://get.jetify.com/devbox)"
+}
+
+setup_ani_cli() {
+  if command_exists ani-cli; then
+    echo "Ani-cli is already installed."
+    return
+  fi
+  echo "Installing Ani-cli..."
+  clone_or_pull "https://github.com/pystardust/ani-cli.git" "$HOME/ani-cli"
+  sudo cp "$HOME/ani-cli/ani-cli" /usr/local/bin
+  rm -rf "$HOME/ani-cli"
+}
+
+install_pkg() {
+  if ! command_exists "$1"; then
+    echo "Installing $1..."
+    install_package "$1"
+  else
+    echo "$1 is already installed."
   fi
 }
 
@@ -98,8 +107,7 @@ install_brew() {
     return
   fi
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+  /bin/bash "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
   echo "eval '$(/opt/homebrew/bin/brew shellenv)'" >>"$HOME/.zprofile"
   eval "$(/opt/homebrew/bin/brew shellenv)"
 }
