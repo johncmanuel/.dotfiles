@@ -22,11 +22,12 @@ nvim_lsp.vtsls.setup({
 
 nvim_lsp.biome.setup({})
 
-local typescript = function(bufnr)
+-- Use Biome if it exists else use other formatters
+local web = function(bufnr)
   if require("conform").get_formatter_info("biome", bufnr).available then
     return { "biome", lsp_format = "never" }
   else
-    return { "vtsls" }
+    return { "vtsls", "prettier" }
   end
 end
 
@@ -34,8 +35,16 @@ local conform = require("conform")
 
 conform.setup({
   formatters_by_ft = {
-    typescript = typescript,
-    -- other filetypes...
+    typescript = web,
+    javascript = web,
+    javascriptreact = web,
+    typescriptreact = web,
+    css = { "prettier" },
+    html = { "prettier" },
+    json = { "prettier" },
+    yaml = { "prettier" },
+    markdown = { "prettier" },
+    graphql = { "prettier" },
   },
 })
 
