@@ -39,6 +39,13 @@ conform.setup({
   },
 })
 
+local renderMarkdown = require("render-markdown")
+renderMarkdown.setup({
+  heading = {
+    enabled = false,
+  },
+})
+
 -- Set to "basedpyright" to use basedpyright instead of pyright.
 vim.g.lazyvim_python_lsp = "basedpyright"
 
