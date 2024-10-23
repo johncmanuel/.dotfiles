@@ -18,6 +18,7 @@ brew 'fzf' # fuzzy finder
 brew 'yt-dlp' # youtube-dl fork
 brew 'aria2' # download utility
 brew 'ffmpeg' # multimedia
+brew 'scroll-reverser' # reverses scrolling direction for mice and touchpads
 
 # Apps
 cask 'obsidian'
