@@ -28,6 +28,7 @@ cask 'discord'
 cask 'zoom'
 cask 'iterm2'
 cask 'iina' # for ani-cli
+cask 'paintbrush'
 
 # Fonts
 cask 'font-jetbrains-mono'
