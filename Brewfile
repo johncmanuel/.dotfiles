@@ -18,7 +18,6 @@ brew 'fzf' # fuzzy finder
 brew 'yt-dlp' # youtube-dl fork
 brew 'aria2' # download utility
 brew 'ffmpeg' # multimedia
-brew 'scroll-reverser' # reverses scrolling direction for mice and touchpads
 
 # Apps
 cask 'obsidian'
@@ -29,6 +28,7 @@ cask 'zoom'
 cask 'iterm2'
 cask 'iina' # for ani-cli
 cask 'paintbrush'
+cask 'scroll-reverser' # reverses scrolling direction for mice and touchpads
 
 # Fonts
 cask 'font-jetbrains-mono'
