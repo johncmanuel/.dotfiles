@@ -18,17 +18,19 @@ brew 'fzf' # fuzzy finder
 brew 'yt-dlp' # youtube-dl fork
 brew 'aria2' # download utility
 brew 'ffmpeg' # multimedia
+brew 'orbstack' # docker client for mac
 
 # Apps
 cask 'obsidian'
 cask 'spotify'
-cask 'docker'
 cask 'discord'
 cask 'zoom'
 cask 'iterm2'
 cask 'iina' # for ani-cli
 cask 'paintbrush'
 cask 'scroll-reverser' # reverses scrolling direction for mice and touchpads
+cask 'insomnia' # http and graphql client
+
 
 # Fonts
 cask 'font-jetbrains-mono'
