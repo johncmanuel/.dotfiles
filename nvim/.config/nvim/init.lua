@@ -20,7 +20,22 @@ nvim_lsp.vtsls.setup({
   single_file_support = false,
 })
 
-nvim_lsp.biome.setup({})
+nvim_lsp.biome.setup({
+  -- Remove svelte until it is better supported
+  filetypes = {
+    "astro",
+    "css",
+    "graphql",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "typescript",
+    "typescript.tsx",
+    "typescriptreact",
+    "vue",
+  },
+})
 
 -- Use Biome if it exists else use other formatters
 local web = function(bufnr)
@@ -39,6 +54,7 @@ conform.setup({
     javascript = web,
     javascriptreact = web,
     typescriptreact = web,
+    svelte = { "vtsls", "prettier" },
     css = { "prettier" },
     html = { "prettier" },
     json = { "prettier" },
