@@ -136,7 +136,14 @@ fastfetch --config ~/.config/fastfetch/presets/minimal.jsonc
 
 # Fix glibc relative path issue by rolling back for now: 
 # https://github.com/jetify-com/devbox/issues/1857#issuecomment-2392561197
-export DEVBOX_USE_VERSION=0.12.0
+# export DEVBOX_USE_VERSION=0.12.0
+
+# NOTE: 11-7-24: Updating to Sequoia for macOS users results in an error related to
+# nixbld. Run the following command to fix this:
+# curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix/tag/v0.26.0 | sh -s -- repair sequoia --move-existing-users
+# Relevant issues:
+# https://github.com/NixOS/nix/issues/10892
+# https://github.com/jetify-com/devbox/issues/2327
 
 export PATH=$HOME/.local/bin:$PATH
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
