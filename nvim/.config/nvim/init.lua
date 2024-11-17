@@ -55,12 +55,12 @@ conform.setup({
     javascriptreact = web,
     typescriptreact = web,
     svelte = { "vtsls", "prettier" },
-    css = { "vtsls", "prettier" },
-    html = { "vtsls", "prettier" },
+    css = web,
+    html = web,
     json = { "vtsls", "prettier" },
     yaml = { "vtsls", "prettier" },
     markdown = { "vtsls", "prettier" },
-    graphql = { "vtsls", "prettier" },
+    graphql = web,
   },
 })
 

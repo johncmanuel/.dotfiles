@@ -30,7 +30,7 @@ cask 'iina' # for ani-cli
 cask 'paintbrush'
 cask 'scroll-reverser' # reverses scrolling direction for mice and touchpads
 cask 'insomnia' # http and graphql client
-
+cask 'devtoys' # lots of useful tools in this one
 
 # Fonts
 cask 'font-jetbrains-mono'
