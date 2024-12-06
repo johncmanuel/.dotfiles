@@ -33,7 +33,8 @@ cask 'insomnia' # http and graphql client
 cask 'devtoys' # lots of useful tools in this one
 cask 'eloston-chromium' # ungoogled chromium
 cask 'ngrok'
-cask 'calibre'
+cask 'calibre' # mainly for converting pdfs to epubs (and prob vice versa)
+cask 'signal'
 
 # Fonts
 cask 'font-jetbrains-mono'
