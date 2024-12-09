@@ -35,6 +35,7 @@ cask 'eloston-chromium' # ungoogled chromium
 cask 'ngrok'
 cask 'calibre' # mainly for converting pdfs to epubs (and prob vice versa)
 cask 'signal'
+cask 'rectangle' # window manager
 
 # Fonts
 cask 'font-jetbrains-mono'
