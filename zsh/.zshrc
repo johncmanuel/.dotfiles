@@ -152,3 +152,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 eval "$(devbox global shellenv --init-hook)"
 
+if [ -e /home/john/.nix-profile/etc/profile.d/nix.sh ]; then . /home/john/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+cd ~
