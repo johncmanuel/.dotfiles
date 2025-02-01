@@ -130,6 +130,8 @@ if [[ "$(uname)" = "Darwin" ]]; then
   fi
 fi
 
+eval `keychain --eval --agents ssh id_ed25519`
+
 eval "$(starship init zsh)"
 
 fastfetch --config ~/.config/fastfetch/presets/minimal.jsonc
@@ -149,3 +151,4 @@ export PATH=$HOME/.local/bin:$PATH
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 eval "$(devbox global shellenv --init-hook)"
+
