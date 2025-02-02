@@ -130,7 +130,9 @@ if [[ "$(uname)" = "Darwin" ]]; then
   fi
 fi
 
-eval `keychain --eval --agents ssh id_ed25519`
+# https://medium.com/@wondrous_oxblood_cheetah_508/ssh-agent-on-windows-c74b90fb2e31
+alias ssh-add='ssh-add.exe'
+alias ssh='ssh-add.exe -l > /dev/null || ssh-add.exe && echo -e "\e[92mssh-key(s) are now available in your ssh-agent until you lock your windows machine! \n \e[0m" && ssh.exe'
 
 eval "$(starship init zsh)"
 
@@ -152,6 +154,6 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 eval "$(devbox global shellenv --init-hook)"
 
+# should be safe to keep here i hope lol
 if [ -e /home/john/.nix-profile/etc/profile.d/nix.sh ]; then . /home/john/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-cd ~
