@@ -151,6 +151,7 @@ fastfetch --config ~/.config/fastfetch/presets/minimal.jsonc
 
 export PATH=$HOME/.local/bin:$PATH
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 eval "$(devbox global shellenv --init-hook)"
 
