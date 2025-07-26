@@ -3,7 +3,10 @@
   "packages": [
     "go@latest",
     "deno@latest",
-    "nodejs@latest"
+    "nodejs@latest",
+    "sqlc@latest",
+    "yt-dlp@latest",
+    "ffmpeg@latest"
   ],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "true"
